@@ -352,6 +352,137 @@ article::before {
   color: var(--secondary-color);
 }
 
+
+/* For large screens: Trainer Highlights */
+.about-me-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: flex-start;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.profile-photo img {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  border: 4px solid #e91e63;
+}
+
+.profile-info {
+  flex: 1;
+  min-width: 320px;
+  text-align: left;
+}
+
+.profile-info h3 {
+  font-size: 2rem;
+  color: #222;
+  margin-bottom: 1rem;
+}
+
+.profile-info p {
+  font-size: 1.1rem;
+  color: #444;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.profile-highlights {
+  list-style: none;
+  padding-left: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.profile-highlights li {
+  position: relative;
+  padding-left: 1.5rem;
+  font-size: 1rem;
+  margin-bottom: 0.6rem;
+}
+
+.profile-highlights li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  color: #e91e63;
+  font-weight: bold;
+}
+
+.social-links {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+.social-links a img {
+  width: 40px;
+  height: 40px;
+  transition: transform 0.3s ease;
+}
+.social-links a:hover img {
+  transform: scale(1.2);
+}
+
+.cta-buttons {
+  margin-top: 2rem;
+}
+.cta-buttons a {
+  display: inline-block;
+  padding: 0.7rem 1.5rem;
+  margin: 0.5rem;
+  font-weight: bold;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+.btn-primary {
+  background-color: #e91e63;
+  color: white;
+}
+.btn-primary:hover {
+  background-color: #d81b60;
+}
+.btn-secondary {
+  background-color: white;
+  border: 2px solid #e91e63;
+  color: #e91e63;
+}
+.btn-secondary:hover {
+  background-color: #e91e63;
+  color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .about-me-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .profile-info {
+    text-align: center;
+    margin-top: 2rem;
+  }
+
+  .profile-photo img {
+    width: 200px;
+    height: 200px;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+
+
 /* meet the team styling */
 
 .staff h2 {
@@ -1213,11 +1344,9 @@ select {
 }
 
 /* -------------------------------------------- */
-/* responsive design for mobile and tablet */
-
-/* ========================= */
-/* ====== MOBILE ≤450px ==== */
+/* Responsive Design for Mobile Devices */
 @media (max-width: 450px) {
+
   article::before {
     font-size: 2.5rem;
     top: 46%;
@@ -1249,19 +1378,6 @@ select {
     background-color: var(--secondary-color);
     border-radius: 50%;
     z-index: -1;
-  }
-
-  nav ul {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    margin: 0;
-    padding: 0;
-  }
-
-  nav ul li {
-    text-align: center;
-    margin: 0;
-    padding: 0;
   }
 
   p {
@@ -1325,6 +1441,55 @@ select {
     grid-template-columns: 1fr;
   }
 
+  .nav-container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .menu-toggle {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    z-index: 1100;
+  }
+
+  .menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background: var(--white);
+    margin: 4px 0;
+    transition: 0.4s;
+  }
+
+  .nav-ul {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 200px;
+    height: 100vh;
+    flex-direction: column;
+    background-color: var(--primary-color);
+    padding-top: 70px;
+    transition: left 0.3s ease-in-out;
+    z-index: 1000;
+  }
+
+  .nav-ul.show {
+    left: 0;
+  }
+
+  .nav-ul li {
+    padding: 15px;
+    text-align: center;
+  }
+
+  .nav-ul a {
+    font-size: 1.2rem;
+    display: block;
+    color: var(--white);
+  }
+
   .nav-logo-heading h1 {
     font-size: 1.5rem;
   }
@@ -1371,6 +1536,7 @@ select {
     text-align: center;
   }
 
+  /* === Responsive Trainer Section Social Links === */
   .social-links {
     display: flex;
     flex-wrap: wrap;
