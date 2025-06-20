@@ -368,5 +368,13 @@ setInterval(autoReview, 6000); // 5000 means 5 seconds
 function toggleMenu() {
   document.querySelector(".nav-ul").classList.toggle("show");
 }
+const menuToggle = document.querySelector(".menu-toggle");
+const navMenu = document.querySelector(".nav-ul");
+
+menuToggle.addEventListener("click", () => {
+  navMenu.classList.toggle("show");
+  document.body.classList.toggle("menu-open");
+});
+
 
 

@@ -55,9 +55,7 @@ body {
 /* header,nav and logo styling here */
 
 
-
-/* header,nav and logo styling here */
-
+/* Header, nav and logo styling */
 .nav-logo-heading {
   display: flex;
   justify-content: center;
@@ -68,55 +66,65 @@ body {
 
 .nav-logo-heading img,
 .footer__logo img {
-  width: fit-content;
   height: auto;
 }
 
 .nav-logo-heading h1 {
   margin-left: 10px;
+  font-size: 1.8rem;
+  color: var(--white);
 }
 
+/* Navigation container */
 .nav-container {
-  position: fixed; /* ← THIS makes it fixed on all devices */
+  position: fixed;
   top: 0;
   left: 0;
-  right: 0;
+  width: 100%;
+  background-color: var(--primary-color);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
-  background-color: var(--primary-color);
   padding: 10px 20px;
   z-index: 999;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
+/* Hamburger menu */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  z-index: 1001;
+}
 
-nav > ul {
+.menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background: var(--white);
+  margin: 4px 0;
+  transition: 0.4s;
+}
+
+/* Navigation links (Desktop) */
+.nav-ul {
   display: flex;
   gap: 15px;
-}
-
-nav ul {
   list-style-type: none;
-  margin: 0;
-  padding: 0;
-  
 }
 
-
-.nav-ul > li {
- padding: 10px 15px;
+.nav-ul li {
+  padding: 10px 15px;
   border-radius: 25px;
   transition: 0.3s ease;
 }
 
-.nav-ul > li:hover {
+.nav-ul li:hover {
   background-color: var(--secondary-color);
   transform: translateY(-10%);
-  transition: 1s;
- 
+  transition: 0.4s ease;
 }
+
 .nav-ul a {
   text-decoration: none;
   color: var(--white);
@@ -136,81 +144,53 @@ nav ul {
   background-color: var(--secondary-color-dark);
   transition: width 0.2s ease-in-out;
 }
+
 .nav-ul a:hover::after {
   width: 50%;
 }
 
-a {
-  text-decoration: none;
-  color: white;
-  position: relative;
-  padding-bottom: 0.75rem;
-  color: var(--white);
-}
-
-a::after {
-  content: "";
-  position: absolute;
-  height: 2px;
-  width: 0;
-  left: 0;
-  bottom: 5px;
-  background-color: var(--secondary-color-dark);
-  transition: 0.2s;
-}
-
-a:hover::after {
-  width: 50%;
-}
-
-.menu-toggle {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-}
-
-.menu-toggle span {
-  width: 25px;
-  height: 3px;
-  background: var(--white);
-  margin: 4px 0;
-  transition: 0.4s;
-}
-
-/* Add margin to body so content doesn't go under navbar */
-body {
-  margin-top: 80px; /* adjust height based on your navbar */
-}
-
+/* Sidebar menu on mobile */
 @media (max-width: 768px) {
   .menu-toggle {
     display: flex;
   }
 
   .nav-ul {
-    position: absolute;
-    top: 60px; /* adjust to match navbar height */
-    left: 0;
-    right: 0;
-    background-color: var(--primary-color);
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 200px;
+    height: 100%;
     flex-direction: column;
-    display: none;
-    width: 100%;
-    z-index: 998;
+    background-color: var(--primary-color);
+    padding-top: 70px;
+    transition: left 0.3s ease-in-out;
+    z-index: 1000;
   }
 
   .nav-ul.show {
-    display: flex;
+    left: 0;
   }
 
-  .nav-ul > li {
+  .nav-ul li {
+    padding: 15px;
     text-align: center;
-    padding: 10px 0;
+  }
+
+  .nav-ul a {
+    font-size: 1.2rem;
+    display: block;
+  }
+
+  body.menu-open {
+    overflow: hidden;
   }
 }
 
-
-
+/* Push page content below fixed navbar */
+body {
+  margin-top: 80px;
+}
 /* article styling starts here */
 
 article::before {
@@ -1004,9 +984,239 @@ select {
   font-size: 0.8rem;
   color: var(--white);
 }
+/* -------------------------------------------- */
+/* Responsive Design for Mobile Devices */
+@media (max-width: 450px) {
+
+  article::before {
+    font-size: 2.5rem;
+    top: 46%;
+    left: 4%;
+  }
+
+  .circle-containers {
+    position: absolute;
+    display: grid;
+    top: 50%;
+    left: 60%;
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .circle-abstract {
+    border: 3px solid var(--secondary-color-dark);
+    margin: 5px;
+    width: 10%;
+    height: auto;
+    border-radius: 10px;
+  }
+
+  .background-span {
+    position: absolute;
+    top: 10%;
+    left: 20%;
+    width: 60%;
+    height: 50%;
+    background-color: var(--secondary-color);
+    border-radius: 50%;
+    z-index: -1;
+  }
+
+  p {
+    font-size: 1.1rem;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .program-container,
+  .explore__grid,
+  .modern-div {
+    grid-template-columns: 1fr;
+  }
+
+  .explore__container {
+    text-align: center;
+  }
+
+  .explore__header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .pricing-plan-div {
+    grid-template-columns: 1fr;
+    gap: 5px;
+    margin: 10px 0;
+    text-align: center;
+  }
+
+  .proteinAndBmi-container {
+    padding: 0 10% 5% 10%;
+    margin: auto;
+    display: block;
+  }
+
+  .BMI-calculator,
+  .form-protein {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .form-container {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    background-color: var(--primary-color-extra-light);
+    padding: 30px;
+    margin: 20px auto;
+    border-radius: 8px;
+    box-shadow: 0 0 10px var(--secondary-color);
+    font-size: 1.2rem;
+    z-index: 2;
+  }
+
+  .footer__container {
+    grid-template-columns: 1fr;
+  }
+
+  .nav-container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .menu-toggle {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    z-index: 1100;
+  }
+
+  .menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background: var(--white);
+    margin: 4px 0;
+    transition: 0.4s;
+  }
+
+  .nav-ul {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 200px;
+    height: 100vh;
+    flex-direction: column;
+    background-color: var(--primary-color);
+    padding-top: 70px;
+    transition: left 0.3s ease-in-out;
+    z-index: 1000;
+  }
+
+  .nav-ul.show {
+    left: 0;
+  }
+
+  .nav-ul li {
+    padding: 15px;
+    text-align: center;
+  }
+
+  .nav-ul a {
+    font-size: 1.2rem;
+    display: block;
+    color: var(--white);
+  }
+
+  .nav-logo-heading h1 {
+    font-size: 1.5rem;
+  }
+
+  .review {
+    text-align: center;
+  }
+
+  .review__content {
+    margin: auto;
+    padding: 5px;
+  }
+
+  .review__member {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+  }
+
+  .footer__col {
+    text-align: center;
+    width: 50%;
+    display: inline-block;
+    margin: auto;
+  }
+
+  .footer__socials {
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    gap: 1rem;
+  }
+
+  .footer__logo {
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .footer__bar {
+    text-align: center;
+  }
+
+  /* === Responsive Trainer Section Social Links === */
+  .social-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.8rem;
+    margin-top: 1rem;
+  }
+
+  .social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background-color: #f5f5f5;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, background-color 0.3s;
+    text-decoration: none;
+  }
+
+  .social-links a:hover {
+    transform: scale(1.1);
+    background-color: #ddd;
+  }
+
+  .social-links img {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+  }
+}
 
 /* -------------------------------------------- */
-/* responsive design mobile */
+/* responsive design for mobile and tablet */
+
+/* ========================= */
+/* ====== MOBILE ≤450px ==== */
 @media (max-width: 450px) {
   article::before {
     font-size: 2.5rem;
@@ -1115,11 +1325,6 @@ select {
     grid-template-columns: 1fr;
   }
 
-  .nav-container,
-  .nav-ul {
-    flex-direction: column;
-  }
-
   .nav-logo-heading h1 {
     font-size: 1.5rem;
   }
@@ -1166,7 +1371,6 @@ select {
     text-align: center;
   }
 
-  /* === Responsive Trainer Section Social Links === */
   .social-links {
     display: flex;
     flex-wrap: wrap;
@@ -1201,8 +1405,8 @@ select {
   }
 }
 
-
-/* Tablet devices (426px to 992px) */
+/* ========================= */
+/* ====== TABLET 426-992px == */
 @media (min-width: 426px) and (max-width: 992px) {
   h2 {
     font-size: 3rem;
@@ -1331,16 +1535,22 @@ select {
     text-align: center;
   }
 
-  .nav-container,
+  .nav-container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
   .nav-ul {
-    flex-direction: column;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
   }
 
   .nav-logo-heading h1 {
     font-size: 2rem;
   }
 
-  /* === Trainer Section Styling for Tablets === */
   .about-me-content {
     display: flex;
     flex-wrap: wrap;
@@ -1418,103 +1628,5 @@ select {
 
   .social-links a:hover img {
     transform: scale(1.2);
-  }
-}
-@media (max-width: 480px) {
-  .about-us-gallery {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-bottom: 2rem;
-  }
-
-  .about-us-gallery img {
-    width: 100%;
-    min-width: auto;
-    border-radius: 12px;
-    object-fit: cover;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-  }
-
-  .about-us-description {
-    max-width: 90%;
-    margin: 0 auto;
-    text-align: center;
-    color: #555;
-  }
-
-  .about-us-description .intro-text {
-    font-size: 1rem;
-    font-weight: 500;
-    margin-bottom: 1rem;
-    color: #444;
-  }
-
-  .features-list {
-    list-style: none;
-    padding: 0;
-    margin: 1.5rem 0;
-    text-align: left;
-  }
-
-  .features-list li {
-    margin-bottom: 1rem;
-    font-size: 1rem;
-    padding-left: 1.2rem;
-    position: relative;
-  }
-
-  .features-list li::before {
-    content: "✔";
-    position: absolute;
-    left: 0;
-    color: #e91e63;
-    font-weight: bold;
-  }
-
-  .section-title {
-    text-align: center;
-    font-size: 2rem;
-    color: #222;
-    margin-bottom: 2rem;
-  }
-
-  .section-title span {
-    color: #e91e63;
-  }
-
-  .cta-buttons {
-    margin-top: 2rem;
-    text-align: center;
-  }
-
-  .cta-buttons a {
-    display: inline-block;
-    padding: 0.6rem 1.2rem;
-    border-radius: 30px;
-    font-weight: 600;
-    text-decoration: none;
-    margin: 0.5rem;
-    transition: background-color 0.3s ease;
-  }
-
-  .btn-primary {
-    background-color: #e91e63;
-    color: white;
-  }
-
-  .btn-primary:hover {
-    background-color: #d81b60;
-  }
-
-  .btn-secondary {
-    background-color: #f5f5f5;
-    color: #333;
-    border: 1px solid #ccc;
-  }
-
-  .btn-secondary:hover {
-    background-color: #ddd;
   }
 }
