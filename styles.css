@@ -1,3 +1,4 @@
+
 :root {
   --primary-color: #111317;
   --primary-color-light: #1f2125;
@@ -53,11 +54,16 @@ body {
 
 /* header,nav and logo styling here */
 
+
+
+/* header,nav and logo styling here */
+
 .nav-logo-heading {
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 10px;
+  gap: 10px;
 }
 
 .nav-logo-heading img,
@@ -71,29 +77,67 @@ body {
 }
 
 .nav-container {
-  position: static;
-  top: 1px;
+  position: fixed; /* ← THIS makes it fixed on all devices */
+  top: 0;
+  left: 0;
+  right: 0;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  z-index: 1;
+  flex-wrap: wrap;
+  background-color: var(--primary-color);
+  padding: 10px 20px;
+  z-index: 999;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
+
 
 nav > ul {
   display: flex;
+  gap: 15px;
 }
 
-.nav-ul > li {
-  margin: 10px;
-  padding: 10px;
-  border-radius: 50px;
+nav ul {
   list-style-type: none;
+  margin: 0;
+  padding: 0;
+  
+}
+
+
+.nav-ul > li {
+ padding: 10px 15px;
+  border-radius: 25px;
+  transition: 0.3s ease;
 }
 
 .nav-ul > li:hover {
   background-color: var(--secondary-color);
   transform: translateY(-10%);
   transition: 1s;
+ 
+}
+.nav-ul a {
+  text-decoration: none;
+  color: var(--white);
+  font-weight: 600;
+  position: relative;
+  padding-bottom: 5px;
+  display: inline-block;
+}
+
+.nav-ul a::after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  width: 0;
+  left: 0;
+  bottom: 0;
+  background-color: var(--secondary-color-dark);
+  transition: width 0.2s ease-in-out;
+}
+.nav-ul a:hover::after {
+  width: 50%;
 }
 
 a {
@@ -118,6 +162,54 @@ a::after {
 a:hover::after {
   width: 50%;
 }
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background: var(--white);
+  margin: 4px 0;
+  transition: 0.4s;
+}
+
+/* Add margin to body so content doesn't go under navbar */
+body {
+  margin-top: 80px; /* adjust height based on your navbar */
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  .nav-ul {
+    position: absolute;
+    top: 60px; /* adjust to match navbar height */
+    left: 0;
+    right: 0;
+    background-color: var(--primary-color);
+    flex-direction: column;
+    display: none;
+    width: 100%;
+    z-index: 998;
+  }
+
+  .nav-ul.show {
+    display: flex;
+  }
+
+  .nav-ul > li {
+    text-align: center;
+    padding: 10px 0;
+  }
+}
+
+
 
 /* article styling starts here */
 
@@ -181,6 +273,21 @@ article::before {
   height: auto;
   border-radius: 50%;
 }
+
+.music-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #111;
+  color: #fff;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  z-index: 9999;
+}
+
 
 /* explore styling starts here */
 
@@ -281,6 +388,47 @@ article::before {
   text-align: center;
   padding: 10px;
 }
+
+.transformations-gallery {
+  padding: 60px 20px;
+  text-align: center;
+  background-color: #111;
+  color: white;
+}
+
+.transformation-images {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.transformation {
+  background: #1c1c1c;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.transformation:hover {
+  transform: translateY(-10px);
+}
+
+.transformation img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.quote {
+  padding: 15px;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: #ccc;
+}
+
 
 /* modern div styling */
 
@@ -500,6 +648,9 @@ textarea {
   border-radius: 4px;
   box-sizing: border-box;
 }
+
+
+
 
 input[type="submit"] {
   background-color: #4caf50;
@@ -1034,7 +1185,7 @@ select {
 }
 
 /* Tablet devices (max-width: 992px) */
-@media (min-width: 426px) and (max-width: 992px) {
+@media (min-width: 426px) and (max-width: 992px) {}
   h2 {
     font-size: 3rem;
   }
@@ -1244,18 +1395,30 @@ select {
 .social-links {
   display: flex;
   gap: 1rem;
-  margin-bottom: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 1rem;
 }
 
-.social-links img {
+.social-links a img {
   width: 32px;
   height: 32px;
+  object-fit: contain;
   transition: transform 0.3s ease;
 }
 
-.social-links img:hover {
+.social-links a:hover img {
   transform: scale(1.2);
 }
+
+/* Optional: smaller icons on very small screens */
+@media (max-width: 480px) {
+  .social-links a img {
+    width: 28px;
+    height: 28px;
+  }
+
 
 .cta-buttons a {
   display: inline-block;
@@ -1381,39 +1544,4 @@ select {
 .btn-secondary:hover {
   background-color: #ddd;
 }
-
-.transformations-gallery {
-  margin: 40px 0;
-  text-align: center;
-}
-
-.transformations-gallery .sub-title {
-  font-size: 1.8rem;
-  margin-bottom: 20px;
-  color: #e63946;
-  font-weight: bold;
-}
-
-.transformation-images {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  flex-wrap: wrap;
-}
-
-.transformation {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.transformation img {
-  width: 150px;
-  height: auto;
-  margin-bottom: 10px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-
 }

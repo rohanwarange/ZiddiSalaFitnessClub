@@ -365,3 +365,8 @@ function autoReview() {
 }
 window.onload = autoReview;
 setInterval(autoReview, 6000); // 5000 means 5 seconds
+function toggleMenu() {
+  document.querySelector(".nav-ul").classList.toggle("show");
+}
+
+
