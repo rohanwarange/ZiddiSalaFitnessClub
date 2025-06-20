@@ -18,128 +18,168 @@
       href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
       rel="stylesheet"
     />
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
   </head>
 
+  
+
   <body>
-    <header class="main-container">
-      <div class="nav-container">
-        <div class="nav-logo-heading">
-          <img src="images/logo.png" alt="Logo" />
-          <h1>Team ziddi fitness club</h1>
-        </div>
-        <nav>
-          <ul class="nav-ul">
-            <li><a href="#">Home</a></li>
-            <li><a href="#program">Program</a></li>
-            <li><a href="#trainer">About Me</a></li>
-            <li><a href="#team">About Us</a></li>
-            <li><a href="#plans">Plans</a></li>
+   <header class="main-container">
+  <div class="nav-container">
+    <div class="nav-logo-heading">
+      <img src="images/logo.png" alt="Logo" />
+      <h1>Team Ziddi Fitness Club</h1>
+    </div>
 
-            <li><a href="#membership" onclick="showForm()">Membership</a></li>
-            
-          </ul>
-        </nav>
+    <!-- Hamburger Button -->
+    <div class="menu-toggle" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <nav>
+      <ul class="nav-ul">
+        <li><a href="#">Home</a></li>
+        <li><a href="#program">Program</a></li>
+        <li><a href="#trainer">About Me</a></li>
+        <li><a href="#team">About Us</a></li>
+        <li><a href="#plans">Plans</a></li>
+        <li><a href="#membership" onclick="showForm()">Membership</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+<main>
+  <!-- Article container starts here -->
+
+  <span class="span-effect"></span>
+  <article class="main-container">
+    <div class="program-container">
+      <div class="our-program animate-fade">
+        <h2>OUR PROGRAM</h2>
+        <p>
+          Join our gym for tailored fitness plans, dynamic group classes,
+          and personalized nutrition guidance. Benefit from functional
+          training, sports conditioning, and rehabilitation exercises.
+          Stay motivated with advanced progress tracking, events,
+          workshops, and challenges. Start your healthier, stronger journey today.
+        </p>
       </div>
-    </header>
-
-    <main>
-      <!-- article container starts here -->
-
-      <span class="span-effect"></span>
-      <article class="main-container">
-        <div class="program-container">
-          <div class="our-program">
-            <h2>OUR PROGRAM</h2>
-            <p>
-              Join our gym for tailored fitness plans, dynamic group classes,
-              and personalized nutrition advice. Benefit from functional
-              training, sports conditioning, and rehab exercises. Stay motivated
-              with advanced progress tracking, events, workshops, and
-              challenges. Start your healthier, stronger journey today.
-            </p>
-          </div>
-          <div class="container">
-            <span class="background-span"></span>
-            <img src="images/background-program.png" alt="Background Image" />
-            <div class="circle-containers">
-              <span class="circle-abstract"></span>
-              <span class="circle-abstract"></span>
-              <span class="circle-abstract"></span>
-              <span class="circle-abstract"></span>
-              <span class="circle-abstract"></span>
-              <span class="circle-abstract"></span>
-              <span class="circle-abstract"></span>
-              <span class="circle-abstract"></span>
-              <span class="circle-abstract"></span>
-              <span class="circle-abstract"></span>
-              <span class="circle-abstract"></span>
-              <span class="circle-abstract"></span>
-              <span class="circle-abstract"></span>
-              <span class="circle-abstract"></span>
-              <span class="circle-abstract"></span>
-              <span class="circle-abstract"></span>
-            </div>
-          </div>
+      <div class="container">
+        <span class="background-span"></span>
+        <img src="images/background-program.png" alt="Background Image" class="hover-zoom" />
+        <div class="circle-containers">
+          <!-- Consider using JS or CSS loop for these repeating elements -->
+          <span class="circle-abstract"></span>
         </div>
-      </article>
+      </div>
+    </div>
+  </article>
 
-      <!-- explore section starts here -->
+  <!-- Explore section starts here -->
 
-      <section class="main-container explore__container">
-        <div class="explore__header">
-          <h2 class="section__header" id="program">WHAT WE OFFER</h2>
-          <div class="explore__nav">
-            <span><i class="ri-arrow-left-line"></i></span>
-            <span><i class="ri-arrow-right-line"></i></span>
-          </div>
-        </div>
-        <div class="explore__grid">
-          <div class="explore__card">
-            <span><i class="ri-boxing-fill"></i></span>
-            <h4>Strength</h4>
-            <p>
-              Our strength training program is designed to increase muscle
-              strength and endurance through structured exercises, enhancing
-              overall physical performance and resilience.
-            </p>
-            <a href="#">Join Now <i class="ri-arrow-right-line"></i></a>
-          </div>
-          <div class="explore__card">
-            <span><i class="ri-heart-pulse-fill"></i></span>
-            <h4>Health Boost</h4>
-            <p>
-              Our Health Boost Program at the gym offers personalized plans
-              focusing on fitness, nutrition, and wellness to enhance overall
-              health effectively.
-            </p>
-            <a href="#">Join Now <i class="ri-arrow-right-line"></i></a>
-          </div>
-          <div class="explore__card">
-            <span><i class="ri-run-line"></i></span>
-            <h4>Cardio</h4>
-            <p>
-              Our cardio program improves cardiovascular fitness through
-              running, cycling, and aerobic exercises, enhancing endurance and
-              overall stamina.
-            </p>
-            <a href="#">Join Now <i class="ri-arrow-right-line"></i></a>
-          </div>
-          <div class="explore__card">
-            <span><i class="ri-verified-badge-line"></i></span>
-            <h4>Verified Trainers</h4>
-            <p>
-              Our verified trainers offer certified expertise in workout plans,
-              nutrition advice, and safe exercise techniques, ensuring you
-              achieve your fitness goals confidently and safely.
-            </p>
-            <a href="#">Join Now <i class="ri-arrow-right-line"></i></a>
-          </div>
-        </div>
-      </section>
+  <section class="main-container explore__container">
+    <div class="explore__header">
+      <h2 class="section__header" id="program">WHAT WE OFFER</h2>
+      <div class="explore__nav">
+        <span class="nav-arrow"><i class="ri-arrow-left-line"></i></span>
+        <span class="nav-arrow"><i class="ri-arrow-right-line"></i></span>
+      </div>
+    </div>
+
+    <div class="explore__grid">
+      <div class="explore__card animate-up">
+        <span><i class="ri-boxing-fill"></i></span>
+        <h4>Strength training</h4>
+        <p>
+          Our strength training program is built to increase muscle strength
+          and endurance through structured exercises, improving your physical
+          performance and resilience.
+        </p>
+        <a href="http://wa.me/919834753969">Join Now <i class="ri-arrow-right-line"></i></a>
+      </div>
+
+      <div class="explore__card animate-up">
+        <span><i class="ri-heart-pulse-fill"></i></span>
+        <h4>Health Boost</h4>
+        <p>
+          Our Health Boost program delivers custom plans that focus on fitness,
+          nutrition, and wellness to elevate your overall health effectively.
+        </p>
+        <a href="http://wa.me/919834753969">Join Now <i class="ri-arrow-right-line"></i></a>
+      </div>
+
+      <div class="explore__card animate-up">
+        <span><i class="ri-run-line"></i></span>
+        <h4>Cardio training</h4>
+        <p>
+          Improve cardiovascular health through our cardio training which
+          includes running, cycling, and aerobic routines for greater stamina.
+        </p>
+        <a href="http://wa.me/919834753969">Join Now <i class="ri-arrow-right-line"></i></a>
+      </div>
+
+      <div class="explore__card animate-up">
+        <span><i class="ri-verified-badge-line"></i></span>
+        <h4>Verified Trainer</h4>
+        <p>
+          Certified and trusted, our trainers provide expert workout guidance,
+          personalized plans, and safe techniques to help you reach your goals
+          with confidence.
+        </p>
+        <a href="http://wa.me/919834753969">Join Now <i class="ri-arrow-right-line"></i></a>
+      </div>
+
+
+      <div class="explore__card animate-up">
+  <span><i class="ri-restaurant-line"></i></span>
+  <h4>Diet Consultation</h4>
+  <p>
+    Get personalized diet plans from certified nutritionists to match your
+    fitness goals. Eat smart, fuel your workouts, and stay on track with expert guidance.
+  </p>
+  <a href="http://wa.me/919834753969">Consult Now <i class="ri-arrow-right-line"></i></a>
+</div>
+
+<div class="explore__card animate-up">
+  <span><i class="ri-restaurant-line"></i></span>
+  <h4>Diet Consultation</h4>
+  <p>
+    Get personalized diet plans from certified nutritionists to match your
+    fitness goals. Eat smart, fuel your workouts, and stay on track with expert guidance.
+  </p>
+  <a href="http://wa.me/919834753969">Consult Now <i class="ri-arrow-right-line"></i></a>
+</div>
+<div class="explore__card animate-up">
+  <span><i class="ri-brain-line"></i></span>
+  <h4>Mental Wellness</h4>
+  <p>
+    Balance your body and mind with mental wellness support. Access stress management, motivation strategies, and guided mindfulness.
+  </p>
+  <a href="http://wa.me/919834753969">Explore Now <i class="ri-arrow-right-line"></i></a>
+</div>
+<div class="explore__card animate-up">
+  <span><i class="ri-capsule-line"></i></span>
+  <h4>Supplement Guide</h4>
+  <p>
+    Learn which supplements boost your performance, recovery, and muscle growth. Get science-backed recommendations just for you.
+  </p>
+  <a href="#">Learn More <i class="ri-arrow-right-line"></i></a>
+</div>
+
+
+    </div>
+  </section>
 
 <!-- About Me Section -->
-<section id="trainer" class="main-container about-me">
-  <h2 class="section-title">Meet Your Trainer – <span>Tejas Shrikrushna Zagade</span></h2>
+<section id="trainer" class="main-container about-me animate-fade">
+  <h2 class="section-title">
+    Meet Your Trainer – <span>Tejas Shrikrushna Zagade</span>
+  </h2>
 
   <div class="about-me-content">
     <div class="profile-photo">
@@ -149,80 +189,100 @@
     <div class="profile-info">
       <h3>Hi, I'm Tejas – Your Personal Fitness Coach 💪</h3>
       <p>
-        <strong>Founder & Trainer at Team ziddi fitness club</strong><br />
-        With over a decade of hands-on experience, I've helped transform hundreds of lives through personalized workout plans and lifestyle changes. Whether you're chasing strength, endurance, fat loss, or a total body transformation — I’m here to guide you every rep of the way.
+        <strong>Founder & Trainer at Team Ziddi Fitness Club</strong><br />
+        With over a decade of hands-on experience, I've helped transform hundreds of lives through personalized workout plans and lifestyle changes. Whether you're chasing strength, endurance, fat loss, or a complete body transformation — I’m here to guide you every step of the way.
       </p>
 
       <p>
-        I believe fitness is not just about physical changes — it's a mindset. My training focuses on discipline, motivation, and building a lifestyle that supports your goals sustainably.
+        I believe fitness isn't just about physical change — it's a mindset. My training focuses on discipline, motivation, and building habits that support your long-term goals.
       </p>
 
       <ul class="profile-highlights">
-        <li><strong>🏅 Certified:</strong>  Bodybuilding & strength Training course by Himalayan Stallion Academy</li>
+        <li><strong>🏅 Certified:</strong> Bodybuilding & Strength Training (Himalayan Stallion Academy)</li>
         <li><strong>🧠 Experience:</strong> 10+ Years in Strength & Conditioning</li>
         <li><strong>🔥 Specialties:</strong> Fat Loss, Muscle Gain, Functional Training, HIIT</li>
       </ul>
 
       <div class="social-links">
-        <a href="https://www.instagram.com/ziddi_sala?igsh=OWg0bjR1MDZvOTJ4" target="_blank" title="Instagram"><img src="images/instagram-icon.png" alt="Instagram"></a>
-        <a href="https://www.facebook.com/share/19NRvZXgb1/?mibextid=wwXIfr" target="_blank" title="Facebook"><img src="images/facebook-icon.png" alt="Facebook"></a>
-        <a href="http://wa.me/919834753969" target="_blank" title="WhatsApp"><img src="images/whatsapp-icon.png" alt="WhatsApp"></a>
-        <a href="mailto:tejzagade6106@gmail.com" title="Email"><img src="images/email-icon.png" alt="Email"></a>
+        <a href="https://www.instagram.com/ziddi_sala?igsh=OWg0bjR1MDZvOTJ4" target="_blank" title="Instagram">
+          <img src="images/Insta.png" alt="Instagram">
+        </a>
+        <a href="https://www.facebook.com/share/19NRvZXgb1/?mibextid=wwXIfr" target="_blank" title="Facebook">
+          <img src="images/Facebook.png" alt="Facebook">
+        </a>
+        <a href="http://wa.me/919834753969" target="_blank" title="WhatsApp">
+          <img src="images/Whatsapp.png" alt="WhatsApp">
+        </a>
+        <a href="mailto:tejzagade6106@gmail.com" title="Email">
+          <img src="images/Email.png" alt="Email">
+        </a>
+        <a href="https://maps.app.goo.gl/xZBr3M2Q9PRFedpZ6?g_st=ic" title="Email">
+          <img src="images/location.png" alt="Location">
+        </a>
       </div>
+
 
       <div class="cta-buttons">
         <a href="#contact" class="btn-primary">📅 Book Free Trial</a>
-        <a href="#programs" class="btn-secondary">💼 View Training Programs</a>
+        <a href="#program" class="btn-secondary">💼 View Training Programs</a>
       </div>
     </div>
   </div>
 </section>
 
 
+
 <!-- About Us Section -->
-<!-- About Us Section -->
-<section id="team" class="main-container about-us">
+<section id="team" class="main-container about-us animate-fade">
   <h2 class="section-title">Welcome to <span>Team Ziddi Fitness Club</span></h2>
 
-  <div class="about-us-gallery">
+  <div class="about-us-gallery gallery-grid">
     <img src="images/gym1.jpeg" alt="Spacious Gym Area" />
     <img src="images/gym2.jpeg" alt="Strength Equipment" />
     <img src="images/gym3.jpeg" alt="Cardio Zone" />
   </div>
 
-  <!-- New Transformations Gallery -->
-  <div class="transformations-gallery">
-    <h3 class="sub-title">🔥 Transformations That Inspire</h3>
-    <div class="transformation-images">
-      <div class="transformation">
-        <img src="images/transformation1_before.jpg" alt="Before - Member A" />
-        <img src="images/transformation1_after.jpg" alt="After - Member A" />
-      </div>
-      <div class="transformation">
-        <img src="images/transformation2_before.jpg" alt="Before - Member B" />
-        <img src="images/transformation2_after.jpg" alt="After - Member B" />
-      </div>
-      <div class="transformation">
-        <img src="images/transformation3_before.jpg" alt="Before - Member C" />
-        <img src="images/transformation3_after.jpg" alt="After - Member C" />
-      </div>
+  <!-- Transformations Gallery -->
+<section class="transformations-gallery" data-aos="fade-up">
+  <h3 class="sub-title">🔥 Transformations That Inspire</h3>
+
+  <div class="transformation-images">
+    <div class="transformation" data-aos="zoom-in" data-aos-delay="0">
+      <img src="images/Transformation2.jpeg" alt="Transformation 1" />
+      <p class="quote">"Push yourself, because no one else is going to do it for you."</p>
+    </div>
+
+    <div class="transformation" data-aos="zoom-in" data-aos-delay="100">
+      <img src="images/Transformation4.jpeg" alt="Transformation 2" />
+      <p class="quote">"Success starts with self-discipline."</p>
+    </div>
+
+    <div class="transformation" data-aos="zoom-in" data-aos-delay="200">
+      <img src="images/Transformation1.jpeg" alt="Transformation 3" />
+      <p class="quote">"Never give up. Great things take time."</p>
+    </div>
+
+    <div class="transformation" data-aos="zoom-in" data-aos-delay="300">
+      <img src="images/Transformation3.jpeg" alt="Transformation 4" />
+      <p class="quote">"Your body can stand almost anything. It’s your mind that you have to convince."</p>
     </div>
   </div>
+</section>
 
   <div class="about-us-description">
     <p class="intro-text">
-      At <strong>Team Ziddi Fitness Club</strong>, we believe that fitness is more than a goal – it's a way of life. We’re not just a gym – we're a driven, supportive community built on ambition, transformation, and self-discipline.
+      At <strong>Team Ziddi Fitness Club</strong>, we believe fitness is more than a goal – it's a lifestyle. We're not just a gym — we're a powerful community built on ambition, transformation, and relentless self-discipline.
     </p>
 
     <p>
-      Our facility is fully equipped with advanced fitness technology, a variety of training zones, and expert-led classes to help you push your limits. Whether you're aiming to lose fat, build muscle, or just feel better — we've got you covered.
+      Our facility is fully equipped with cutting-edge equipment, diverse training zones, and expert-led classes to help you break limits and reach your peak.
     </p>
 
     <ul class="features-list">
-      <li>🏋️‍♂️ <strong>Free Weights & Strength Machines:</strong> Top-tier equipment for serious gains</li>
-      <li>🚴‍♀️ <strong>Smart Cardio Zone:</strong> Real-time stats, virtual workouts & HIIT ready</li>
-      <li>🧘 <strong>Functional Training:</strong> TRX, ropes, kettlebells, mats, and more</li>
-      <li>🛁 <strong>Premium Facilities:</strong> Showers, lockers, recovery lounge & nutrition bar</li>
+      <li>🏋️‍♂️ <strong>Free Weights & Strength Machines:</strong> Premium equipment for serious gains</li>
+      <li>🚴‍♀️ <strong>Smart Cardio Zone:</strong> Real-time stats, virtual workouts & HIIT support</li>
+      <li>🧘 <strong>Functional Training Area:</strong> Includes TRX, battle ropes, kettlebells & mats</li>
+      <li>🛁 <strong>Premium Amenities:</strong> Showers, lockers, recovery lounge & nutrition bar</li>
     </ul>
 
     <div class="cta-buttons">
@@ -233,21 +293,21 @@
 </section>
 
 
-      <!-- pricing plan section container-->
-<section id="plans" class="main-container member">
-  <h2>Member Pricing Plan</h2>
+<!-- Pricing Plan Section -->
+<section id="plans" class="main-container member animate-fade">
+  <h2>Membership Pricing Plans</h2>
   <div class="pricing-plan-div">
 
     <!-- Plan 1 -->
-    <div class="membership">
+    <div class="membership animate-up">
       <h3>1 Month Plan</h3>
-      <h4>650 Rs. Monthly</h4>
+      <h4>₹650 / Month</h4>
       <ul>
         <li><i class="ri-checkbox-circle-fill"></i> All Equipment</li>
         <li><i class="ri-checkbox-circle-fill"></i> Changing Room</li>
         <li><i class="ri-checkbox-circle-fill"></i> Bathroom</li>
-        <li><i class="ri-checkbox-circle-fill"></i> Strainth Training</li>
-        <li><i class="ri-checkbox-circle-fill"></i> Training Instruction</li>
+        <li><i class="ri-checkbox-circle-fill"></i> Strength Training</li>
+        <li><i class="ri-checkbox-circle-fill"></i> Training Instructions</li>
         <li><i class="ri-checkbox-circle-fill"></i> Weight Training</li>
         <li><i class="ri-checkbox-blank-circle-line"></i> Personal Trainer</li>
         <li><i class="ri-checkbox-blank-circle-line"></i> Treadmills</li>
@@ -256,15 +316,15 @@
     </div>
 
     <!-- Plan 2 -->
-    <div class="membership">
+    <div class="membership animate-up">
       <h3>3 Month Plan</h3>
-      <h4>1800 Rs.</h4>
+      <h4>₹1800</h4>
       <ul>
         <li><i class="ri-checkbox-circle-fill"></i> All Equipment</li>
         <li><i class="ri-checkbox-circle-fill"></i> Locker Room</li>
         <li><i class="ri-checkbox-circle-fill"></i> Bathroom</li>
-        <li><i class="ri-checkbox-circle-fill"></i> Strainth Training</li>
-        <li><i class="ri-checkbox-circle-fill"></i> Training Instruction</li>
+        <li><i class="ri-checkbox-circle-fill"></i> Strength Training</li>
+        <li><i class="ri-checkbox-circle-fill"></i> Training Instructions</li>
         <li><i class="ri-checkbox-circle-fill"></i> Weight Training</li>
         <li><i class="ri-checkbox-blank-circle-line"></i> Personal Trainer</li>
         <li><i class="ri-checkbox-blank-circle-line"></i> Treadmills</li>
@@ -273,15 +333,15 @@
     </div>
 
     <!-- Plan 3 -->
-    <div class="membership">
+    <div class="membership animate-up">
       <h3>6 Month Plan</h3>
-      <h4>3600 Rs.</h4>
+      <h4>₹3600</h4>
       <ul>
         <li><i class="ri-checkbox-circle-fill"></i> All Equipment</li>
         <li><i class="ri-checkbox-circle-fill"></i> Locker Room</li>
         <li><i class="ri-checkbox-circle-fill"></i> Bathroom</li>
-        <li><i class="ri-checkbox-circle-fill"></i> Strainth Training</li>
-        <li><i class="ri-checkbox-circle-fill"></i> Training Instruction</li>
+        <li><i class="ri-checkbox-circle-fill"></i> Strength Training</li>
+        <li><i class="ri-checkbox-circle-fill"></i> Training Instructions</li>
         <li><i class="ri-checkbox-circle-fill"></i> Weight Training</li>
         <li><i class="ri-checkbox-blank-circle-line"></i> Personal Trainer</li>
         <li><i class="ri-checkbox-blank-circle-line"></i> Treadmills</li>
@@ -290,17 +350,17 @@
     </div>
 
     <!-- Plan 4 -->
-    <div class="membership">
+    <div class="membership animate-up">
       <h3>1 Year Plan</h3>
-      <h4>7200 Rs.</h4>
+      <h4>₹7200</h4>
       <ul>
         <li><i class="ri-checkbox-circle-fill"></i> All Equipment</li>
         <li><i class="ri-checkbox-circle-fill"></i> Locker Room</li>
         <li><i class="ri-checkbox-circle-fill"></i> Bathroom</li>
-        <li><i class="ri-checkbox-circle-fill"></i> Strainth Training</li>
-        <li><i class="ri-checkbox-circle-fill"></i> Training Instruction</li>
+        <li><i class="ri-checkbox-circle-fill"></i> Strength Training</li>
+        <li><i class="ri-checkbox-circle-fill"></i> Training Instructions</li>
         <li><i class="ri-checkbox-circle-fill"></i> Weight Training</li>
-        <li><i class="ri-checkbox-circle-fill"></i> 2 months Gym Free - Total 14 months</li>
+        <li><i class="ri-checkbox-circle-fill"></i> 2 Free Months – Total 14 Months</li>
         <li><i class="ri-checkbox-blank-circle-line"></i> Personal Trainer</li>
         <li><i class="ri-checkbox-blank-circle-line"></i> Treadmills</li>
       </ul>
@@ -308,16 +368,16 @@
     </div>
 
     <!-- Plan 5 -->
-    <div class="membership">
+    <div class="membership animate-up">
       <h3>Cardio Training</h3>
-      <h4>350 Rs. Monthly</h4>
+      <h4>₹350 / Month</h4>
       <ul>
-        <li><i class="ri-checkbox-blank-circle-line"></i> Treadmills</li>
         <li><i class="ri-checkbox-circle-fill"></i> Changing Room</li>
         <li><i class="ri-checkbox-circle-fill"></i> Bathroom</li>
+        <li><i class="ri-checkbox-blank-circle-line"></i> Treadmills</li>
         <li><i class="ri-checkbox-blank-circle-line"></i> All Equipment</li>
         <li><i class="ri-checkbox-blank-circle-line"></i> Strength Training</li>
-        <li><i class="ri-checkbox-blank-circle-line"></i> Training Instruction</li>
+        <li><i class="ri-checkbox-blank-circle-line"></i> Training Instructions</li>
         <li><i class="ri-checkbox-blank-circle-line"></i> Weight Training</li>
         <li><i class="ri-checkbox-blank-circle-line"></i> Personal Trainer</li>
         <li><i class="ri-checkbox-blank-circle-line"></i> Custom Diet Plan</li>
@@ -327,16 +387,16 @@
     </div>
 
     <!-- Plan 6 -->
-    <div class="membership">
+    <div class="membership animate-up">
       <h3>Full Body Massage</h3>
-      <h4>500 Rs.</h4>
+      <h4>₹500</h4>
       <ul>
-        <li><i class="ri-checkbox-blank-circle-line"></i> Treadmills</li>
         <li><i class="ri-checkbox-circle-fill"></i> Changing Room</li>
         <li><i class="ri-checkbox-circle-fill"></i> Bathroom</li>
+        <li><i class="ri-checkbox-blank-circle-line"></i> Treadmills</li>
         <li><i class="ri-checkbox-blank-circle-line"></i> All Equipment</li>
         <li><i class="ri-checkbox-blank-circle-line"></i> Strength Training</li>
-        <li><i class="ri-checkbox-blank-circle-line"></i> Training Instruction</li>
+        <li><i class="ri-checkbox-blank-circle-line"></i> Training Instructions</li>
         <li><i class="ri-checkbox-blank-circle-line"></i> Weight Training</li>
         <li><i class="ri-checkbox-blank-circle-line"></i> Personal Trainer</li>
         <li><i class="ri-checkbox-blank-circle-line"></i> Custom Diet Plan</li>
@@ -348,227 +408,252 @@
   </div>
 </section>
 
-
-
-
-      </section>
-
-      <!-- membership form -->
-
-      <section class="main-container">
-        <div>
-          <div class="form-container hidden">
-            <button id="closeBtn" onclick="closeForm()">X</button>
-            <h2>Gym Membership Form</h2>
-            <form id="membershipForm">
-              <div class="form-group">
-                <label for="fullname">
-                  <i class="ri-id-card-line"></i> Full Name:
-                </label>
-                <input type="text" id="fullname" name="fullname" required />
-              </div>
-              <div class="form-group">
-                <label for="email"> <i class="ri-mail-line"></i> Email: </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
-                  placeholder="gym-member@yahoo.ie"
-                  required
-                />
-              </div>
-              <div class="form-group">
-                <label for="phone">
-                  <i class="ri-smartphone-line"></i>Phone Number:
-                </label>
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  pattern="^\+353\d{2}\d{3}\d{4}$"
-                  placeholder="Format: +353864567890"
-                  required
-                />
-              </div>
-              <div class="form-group">
-                <label for="membership">
-                  <i class="ri-calendar-schedule-line"></i> Membership Plan:
-                </label>
-                <select id="membership" name="membership" required>
-                  <option value="">Select Membership</option>
-                  <option value="Trial">Free 1 Day Trial</option>
-                  <option value="1 Month Plan">1 Month Plan</option>
-                  <option value="3 Month Plan">3 Month Plan</option>
-                  <option value="6 Month Plan">6 Month Plan</option>
-                  <option value="1 Year Plan">1 Year Plan</option>
-                  <option value="Cardio Training">Cardio Training</option>
-                  <option value="Full Body Massage">Full Body Massage</option>
-
-
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="message">
-                  <i class="ri-chat-1-line"></i> Additional Message:
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows="4"
-                  minlength="10"
-                  maxlength="200"
-                ></textarea>
-              </div>
-              <div class="form-group">
-                <input type="submit" value="Submit" />
-              </div>
-            </form>
-          </div>
-          <div class="memberDetails hidden"></div>
-          <div id="countdown" class="hidden"></div>
+<!-- Membership Form -->
+<section class="main-container animate-fade">
+  <div>
+    <div class="form-container hidden">
+      <button id="closeBtn" onclick="closeForm()">X</button>
+      <h2>Gym Membership Form</h2>
+      <form id="membershipForm">
+        <div class="form-group">
+          <label for="fullname">
+            <i class="ri-id-card-line"></i> Full Name:
+          </label>
+          <input type="text" id="fullname" name="fullname" required />
         </div>
-      </section>
 
-      <!-- protein calculator & BMI calculator-->
-      <div class="btn-div">
-        <button onclick="showBMI()" id="bmiButton">BMI Calculator</button>
-        <button onclick="hideProtein()" id="proteinButton">
-          Protein Calculator
-        </button>
-      </div>
-      <section>
-        <div class="main-container proteinAndBmi-container">
-          <!-- BMI Calculator div here -->
-          <div class="BMI-calculator hidden">
-            <h2>BMI Calculator</h2>
-            <form id="bmiForm">
-              <input
-                type="number"
-                id="bmiHeight"
-                placeholder="Height (cm)"
-                required
-              />
-
-              <input
-                type="number"
-                id="bmiWeight"
-                placeholder="Weight (kg)"
-                required
-              />
-
-              <button type="button" onclick="calculateBMI()">
-                Calculate BMI
-              </button>
-            </form>
-            <p class="result" id="bmiResult"></p>
-          </div>
-
-          <!-- Protein Calculator div here -->
-          <div class="form-protein hidden">
-            <form>
-              <h2 class="h2-protein">Protein Calculator</h2>
-
-              <label for="gender" class="protein-label">Gender</label>
-              <select name="gender" id="gender" required>
-                <option value="">Select gender</option>
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-              </select>
-
-              <label for="age" class="protein-label">Age</label>
-              <input
-                name="age"
-                type="number"
-                id="age"
-                min="0"
-                max="120"
-                step="1"
-                required
-              />
-
-              <label for="weight" class="protein-label">Weight (kg)</label>
-              <input
-                name="weight"
-                type="number"
-                id="weight"
-                min="0"
-                step="0.1"
-                required
-              />
-
-              <label for="height" class="protein-label">Height (cm)</label>
-              <input
-                name="height"
-                type="number"
-                id="height"
-                min="0"
-                step="0.1"
-                required
-              />
-
-              <label for="activity" class="protein-label">Activity Level</label>
-              <select name="activity" id="activity">
-                <option value="">Select Activity Level</option>
-                <option value="1.2">Sedentary (no exercise)</option>
-                <option value="1.375">Light Activity (1-3 Days)</option>
-                <option value="1.55">Moderate Activity (3-5 Days)</option>
-                <option value="1.725">Very Active (6-7 Days)</option>
-                <option value="1.9">Extra Active (Job / Sportsperson)</option>
-              </select>
-
-              <br /><br />
-
-              <button type="button" onclick="proteinCalculator()">
-                Calculate Protein
-              </button>
-
-              <p id="result"></p>
-            </form>
-          </div>
+        <div class="form-group">
+          <label for="email"><i class="ri-mail-line"></i> Email:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+            placeholder="gym-member@example.com"
+            required
+          />
         </div>
-      </section>
 
-      
-    </main>
-
-    <footer class="main-container footer__container">
-      <span class="span-effect"></span>
-      <div class="footer__col">
-        <div class="footer__logo"><img src="images/logo.png" alt="logo" /></div>
-        <p>
-          Take the first step towards a healthier, stronger you with our
-          unbeatable pricing plans. Let's sweat, achieve, and conquer together!
-        </p>
-        <div class="footer__socials">
-          <a href="#"><i class="ri-facebook-fill"></i></a>
-          <a href="#"><i class="ri-instagram-line"></i></a>
-          <a href="#"><i class="ri-twitter-fill"></i></a>
+        <div class="form-group">
+          <label for="phone"><i class="ri-smartphone-line"></i> Phone Number:</label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            pattern="^\+91\d{10}$"
+            placeholder="Format: +919876543210"
+            required
+          />
         </div>
-      </div>
-      <div class="footer__col">
-        <h4>Company</h4>
-        <a href="#">Business</a>
-        <a href="#">Franchise</a>
-        <a href="#">Partnership</a>
-        <a href="#">Network</a>
-      </div>
-      <div class="footer__col">
-        <h4>About Us</h4>
-        <a href="#">Blogs</a>
-        <a href="#">Security</a>
-        <a href="#">Careers</a>
-      </div>
-      <div class="footer__col">
-        <h4>Contact</h4>
-        <a href="#">Contact Us</a>
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms & Conditions</a>
-      </div>
-    </footer>
-    <div class="footer__bar">
-      Copyright © 2025 Rohan24 <i class="ri-code-s-slash-line"></i>
+
+        <div class="form-group">
+          <label for="membership">
+            <i class="ri-calendar-schedule-line"></i> Membership Plan:
+          </label>
+          <select id="membership" name="membership" required>
+            <option value="">Select Membership</option>
+            <option value="Trial">Free 1-Day Trial</option>
+            <option value="1 Month Plan">1 Month Plan</option>
+            <option value="3 Month Plan">3 Month Plan</option>
+            <option value="6 Month Plan">6 Month Plan</option>
+            <option value="1 Year Plan">1 Year Plan</option>
+            <option value="Cardio Training">Cardio Training</option>
+            <option value="Full Body Massage">Full Body Massage</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="message"><i class="ri-chat-1-line"></i> Additional Message:</label>
+          <textarea id="message" name="message" rows="4" minlength="10" maxlength="200"></textarea>
+        </div>
+
+        <div class="form-group">
+          <input type="submit" value="Submit" />
+        </div>
+      </form>
     </div>
-    <script src="index.js"></script>
-  </body>
+
+    <div class="memberDetails hidden"></div>
+    <div id="countdown" class="hidden"></div>
+  </div>
+</section>
+
+
+<!-- BMI & Protein Calculators -->
+<div class="btn-div animate-fade">
+  <button onclick="showBMI()" id="bmiButton">🧮 BMI Calculator</button>
+  <button onclick="hideProtein()" id="proteinButton">🥚 Protein Calculator</button>
+</div>
+
+<section>
+  <div class="main-container proteinAndBmi-container">
+
+    <!-- BMI Calculator -->
+    <div class="BMI-calculator hidden animate-up">
+      <h2>Body Mass Index (BMI)</h2>
+      <form id="bmiForm">
+        <input
+          type="number"
+          id="bmiHeight"
+          placeholder="Enter Height (cm)"
+          required
+        />
+        <input
+          type="number"
+          id="bmiWeight"
+          placeholder="Enter Weight (kg)"
+          required
+        />
+        <button type="button" onclick="calculateBMI()">Calculate BMI</button>
+      </form>
+      <p class="result" id="bmiResult"></p>
+    </div>
+
+    <!-- Protein Calculator -->
+    <div class="form-protein hidden animate-up">
+      <form id="proteinForm">
+        <h2 class="h2-protein">Daily Protein Intake</h2>
+
+        <label for="gender" class="protein-label">Gender</label>
+        <select name="gender" id="gender" required>
+          <option value="">Select Gender</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+
+        <label for="age" class="protein-label">Age</label>
+        <input
+          type="number"
+          id="age"
+          min="1"
+          max="120"
+          step="1"
+          placeholder="Your Age"
+          required
+        />
+
+        <label for="weight" class="protein-label">Weight (kg)</label>
+        <input
+          type="number"
+          id="weight"
+          step="0.1"
+          min="1"
+          placeholder="Your Weight"
+          required
+        />
+
+        <label for="height" class="protein-label">Height (cm)</label>
+        <input
+          type="number"
+          id="height"
+          step="0.1"
+          min="1"
+          placeholder="Your Height"
+          required
+        />
+
+        <label for="activity" class="protein-label">Activity Level</label>
+        <select name="activity" id="activity" required>
+          <option value="">Select Activity Level</option>
+          <option value="1.2">Sedentary (no exercise)</option>
+          <option value="1.375">Light (1-3 days/week)</option>
+          <option value="1.55">Moderate (3-5 days/week)</option>
+          <option value="1.725">Very Active (6-7 days/week)</option>
+          <option value="1.9">Extra Active (physical job or athlete)</option>
+        </select>
+
+        <br /><br />
+        <button type="button" onclick="proteinCalculator()">Calculate Protein</button>
+        <p id="result"></p>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="main-container footer__container animate-fade">
+  <span class="span-effect"></span>
+
+  <div class="footer__col">
+    <div class="footer__logo">
+      <img src="images/logo.png" alt="Team Ziddi Logo" />
+    </div>
+    <p>
+      Take the first step toward a healthier, stronger you with our unbeatable pricing plans.
+      Let’s sweat, achieve, and conquer — together!
+    </p>
+    <div class="footer__socials">
+      <a href="https://www.facebook.com/share/19NRvZXgb1/?mibextid=wwXIfr"><i class="ri-facebook-fill"></i></a>
+      <a href="https://www.instagram.com/ziddi_sala?igsh=OWg0bjR1MDZvOTJ4"><i class="ri-instagram-line"></i></a>
+      <a href="#"><i class="ri-twitter-fill"></i></a>
+    </div>
+  </div>
+
+  <div class="footer__col">
+    <h4>Company</h4>
+    <a href="#">Business</a>
+    <a href="#">Franchise</a>
+    <a href="#">Partnership</a>
+    <a href="#">Network</a>
+  </div>
+
+  <div class="footer__col">
+    <h4>About Us</h4>
+    <a href="#">Blogs</a>
+    <a href="#">Security</a>
+    <a href="#">Careers</a>
+  </div>
+
+   <div class="footer__col">
+    <h4>Contact</h4>
+    <a href="http://wa.me/919834753969">📞 WhatsApp: +91 98347 53969</a>
+    <a href="mailto:tejzagade6106@gmail.com">📧 Email: tejzagade6106@gmail.com</a>
+    <a href="https://maps.app.goo.gl/xZBr3M2Q9PRFedpZ6?g_st=ic" target="_blank">
+      📍 Address: Team Ziddi Fitness Club, Kharepatan , Kankavli , Sindhudurg-416703 Maharashtra
+    </a>
+    <a href="#">Privacy Policy</a>
+    <a href="#">Terms & Conditions</a>
+  </div>
+</footer>
+
+<div class="footer__bar">
+  Copyright © 2025 <strong>Rohan24</strong> <i class="ri-code-s-slash-line"></i>
+</div>
+<audio id="backgroundMusic" src="audio/Himmat Bgmi (PenduJatt.Com.Se).mp3" autoplay loop muted></audio>
+
+<button onclick="toggleMusic()" id="musicBtn" class="music-btn">🔇</button>
+
+<script>
+  const music = document.getElementById("backgroundMusic");
+  const musicBtn = document.getElementById("musicBtn");
+
+  function toggleMusic() {
+    if (music.muted) {
+      music.muted = false;
+      music.play();
+      musicBtn.textContent = "🔊";
+    } else {
+      music.muted = true;
+      musicBtn.textContent = "🔇";
+    }
+  }
+</script>
+
+
+<script src="index.js"></script>
+<script>
+  function toggleMenu() {
+    document.querySelector(".nav-ul").classList.toggle("show");
+  }
+</script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000,
+    once: true
+  });
+</script>
+
+</body>
 </html>
