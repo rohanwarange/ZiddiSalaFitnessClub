@@ -1,5 +1,17 @@
-// open form and close form
+// ==========================
+// TOGGLE NAV FOR MOBILE
+// ==========================
+const menuToggle = document.querySelector(".menu-toggle");
+const navMenu = document.querySelector(".nav-ul");
 
+menuToggle.addEventListener("click", () => {
+  navMenu.classList.toggle("show");
+  document.body.classList.toggle("menu-open");
+});
+
+// ==========================
+// SHOW / HIDE MEMBERSHIP FORM
+// ==========================
 let formContainer = document.querySelector(".form-container");
 
 function showForm() {
@@ -10,34 +22,33 @@ function closeForm() {
   formContainer.classList.add("hidden");
 }
 
-// form for membership
-
+// ==========================
+// MEMBERSHIP FORM HANDLER
+// ==========================
 const memberDetailsDiv = document.querySelector(".memberDetails");
 
-document
-  .getElementById("membershipForm")
-  .addEventListener("submit", function membership(event) {
-    event.preventDefault();
-    const fullName = document.getElementById("fullname").value;
-    const email = document.getElementById("email").value;
-    const phoneNumber = document.getElementById("phone").value;
-    const membership = document.getElementById("membership").value;
+document.getElementById("membershipForm").addEventListener("submit", function membership(event) {
+  event.preventDefault();
+  const fullName = document.getElementById("fullname").value;
+  const email = document.getElementById("email").value;
+  const phoneNumber = document.getElementById("phone").value;
+  const membership = document.getElementById("membership").value;
 
-    if (email.includes("@") == false || email.includes(".") == false) {
-      memberDetailsDiv.innerHTML = `Please enter a valid email.`;
-    }
+  if (!email.includes("@") || !email.includes(".")) {
+    memberDetailsDiv.innerHTML = `Please enter a valid email.`;
+    return;
+  }
 
-    const member = new GymMember(fullName, email, phoneNumber, membership);
-    displayMemberDetails(member);
+  const member = new GymMember(fullName, email, phoneNumber, membership);
+  displayMemberDetails(member);
 
-    closeForm();
+  closeForm();
+  memberDetailsDiv.classList.remove("hidden");
 
-    let memberDetails = document.querySelector(".memberDetails");
-    memberDetails.classList.toggle("hidden");
-    setTimeout(() => {
-      memberDetails.classList.toggle("hidden");
-    }, 10000);
-  });
+  setTimeout(() => {
+    memberDetailsDiv.classList.add("hidden");
+  }, 10000);
+});
 
 class GymMember {
   constructor(fullName, eMail, phoneNumber, membership) {
@@ -48,74 +59,81 @@ class GymMember {
   }
 
   hiddenEmail(email) {
-    let [userEmail, website] = email.split("@");
-    let maskEmail = userEmail.slice(0, 2) + "*****" + userEmail.slice(-2);
-    return `${maskEmail}@${website}`;
+    let [user, domain] = email.split("@");
+    return user.slice(0, 2) + "*****" + user.slice(-2) + "@" + domain;
   }
 
   hiddenPhone(phone) {
-    let phoneSplit = phone.slice(0, 6) + "****" + phone.slice(-3);
-    return phoneSplit;
+    return phone.slice(0, 6) + "****" + phone.slice(-3);
   }
 
   shortenedName(name) {
-    let shortName = name.split(" ");
-    return shortName[0];
+    return name.split(" ")[0];
   }
 
   detailsMember() {
-    let hideEmail = this.hiddenEmail(this.email);
-    let hidePhone = this.hiddenPhone(this.phone);
     return `
     <br>
-    We have sent a verification email at ${hideEmail}! <br>
-    We have saved your Contact Number ${hidePhone} for future reference! <br>
+    We have sent a verification email at ${this.hiddenEmail(this.email)}! <br>
+    We have saved your Contact Number ${this.hiddenPhone(this.phone)} for future reference! <br>
     A staff member will be in touch with you shortly about your membership plan ${this.membership}.<br>
     Thank you and see you soon! 
-    <br>
-    <br>
-    Regards,<br>
-    Dublin Gym Team.`;
+    <br><br>Regards,<br>Team Ziddi Fitness Club.`;
   }
 }
 
 function displayMemberDetails(member) {
   memberDetailsDiv.innerHTML = `
-    <h2>Welcome ${member.shortenedName(member.name)} !</h2>
+    <h2>Welcome ${member.shortenedName(member.name)}!</h2>
     <p>${member.detailsMember()}</p>
-    `;
+  `;
 }
 
-// BMI Calculator
+// Scroll reveal for About Section (optional)
+window.addEventListener("scroll", () => {
+  const trainerSection = document.getElementById("trainer");
+  const trainerPos = trainerSection.getBoundingClientRect().top;
+  const screenPos = window.innerHeight / 1.3;
 
+  if (trainerPos < screenPos) {
+    trainerSection.classList.add("animate-fade");
+  }
+});
+
+// ==========================
+// BMI CALCULATOR
+// ==========================
 let formBMI = document.querySelector(".BMI-calculator");
 let bmiButton = document.getElementById("bmiButton");
 let isOpenBMI = true;
-
 let bmiResult = document.getElementById("bmiResult");
 
 function calculateBMI() {
   let bmiHeight = parseFloat(document.getElementById("bmiHeight").value);
   let bmiWeight = parseFloat(document.getElementById("bmiWeight").value);
 
+  if (isNaN(bmiHeight) || isNaN(bmiWeight) || bmiHeight <= 0 || bmiWeight <= 0) {
+    bmiResult.innerHTML = "Please enter valid height and weight.";
+    return;
+  }
+
   let meterHeight = bmiHeight / 100;
-  let heightSquared = meterHeight * meterHeight;
-  let BMI = bmiWeight / heightSquared;
+  let BMI = bmiWeight / (meterHeight * meterHeight);
 
   bmiResult.innerHTML = `Your BMI is ${BMI.toFixed(1)}.<br>
-  The recommended BMI categories for adults are as follows:
   <ul>
-  <li> Underweight: BMI less than 18.5</li>
-  <li> Normal weight: BMI 18.5 - 24.9</li>
-  <li> Overweight: BMI 25 - 29.9</li>
-  <li> Obesity: BMI 30 or higher</li>
+    <li>Underweight: BMI less than 18.5</li>
+    <li>Normal weight: BMI 18.5 - 24.9</li>
+    <li>Overweight: BMI 25 - 29.9</li>
+    <li>Obesity: BMI 30 or higher</li>
   </ul>`;
 }
 
 function showBMI() {
   formBMI.classList.toggle("hidden");
+  isOpenBMI = !isOpenBMI;
 
-  if (!isOpenBMI) {
+  if (isOpenBMI) {
     bmiButton.innerHTML = `BMI Calculator`;
     bmiButton.style.background = ``;
     bmiButton.style.color = ``;
@@ -123,21 +141,20 @@ function showBMI() {
     bmiButton.innerHTML = `CLOSE`;
     bmiButton.style.background = "rgb(255, 76, 76)";
     bmiButton.style.color = `white`;
-  }
+  }}
 
-  isOpenBMI = !isOpenBMI;
-}
-
-// protein calculator
-
+// ==========================
+// PROTEIN CALCULATOR
+// ==========================
 let formProtein = document.querySelector(".form-protein");
 let proteinBtn = document.getElementById("proteinButton");
 let isOpenProtein = true;
 
 function hideProtein() {
   formProtein.classList.toggle("hidden");
+  isOpenProtein = !isOpenProtein;
 
-  if (!isOpenProtein) {
+  if (isOpenProtein) {
     proteinBtn.innerHTML = "Protein Calculator";
     proteinBtn.style.backgroundColor = "";
     proteinBtn.style.color = "";
@@ -146,93 +163,52 @@ function hideProtein() {
     proteinBtn.style.backgroundColor = "rgb(255, 76, 76)";
     proteinBtn.style.color = "white";
   }
-
-  isOpenProtein = !isOpenProtein;
 }
 
 function proteinCalculator() {
-  let genderElem = document.getElementById("gender").value;
-  let heightElem = parseFloat(document.getElementById("height").value);
-  let weightElem = parseFloat(document.getElementById("weight").value);
-  let ageElem = parseFloat(document.getElementById("age").value);
-  let activityElem = parseFloat(document.getElementById("activity").value);
-  let resultElem = document.getElementById("result");
-  let BMR;
-  let TDEE;
-  let minimumProtein;
-  let maximumProtein;
+  let gender = document.getElementById("gender").value;
+  let height = parseFloat(document.getElementById("height").value);
+  let weight = parseFloat(document.getElementById("weight").value);
+  let age = parseFloat(document.getElementById("age").value);
+  let activity = parseFloat(document.getElementById("activity").value);
+  let result = document.getElementById("result");
 
-  if (!genderElem) {
-    resultElem.innerHTML = "Please pick a gender.";
+  if (!gender || isNaN(height) || isNaN(weight) || isNaN(age) || isNaN(activity) || age >= 120) {
+    result.innerHTML = `Please enter valid inputs.`;
     return;
   }
 
-  if (isNaN(heightElem) || heightElem <= 0) {
-    resultElem.innerHTML = "Please enter a valid height.";
-    return;
-  }
+  let BMR =
+    gender === "male"
+      ? 88.362 + 13.397 * weight + 4.799 * height - 5.677 * age
+      : 447.593 + 9.247 * weight + 3.098 * height - 4.33 * age;
 
-  if (isNaN(weightElem) || weightElem <= 0) {
-    resultElem.innerHTML = "Please enter a valid weight.";
-    return;
-  }
+  let TDEE = BMR * activity;
+  let minP, maxP;
 
-  if (isNaN(ageElem) || ageElem <= 0) {
-    resultElem.innerHTML = "Please enter a correct age.";
-    return;
-  } else if (ageElem >= 120) {
-    resultElem.innerHTML = "Age limit is too high. We recommend you rest up.";
-    return;
-  }
-
-  if (isNaN(activityElem) || activityElem <= 0) {
-    resultElem.innerHTML = "Please pick an activity level.";
-    return;
-  }
-
-  if (genderElem == "male") {
-    BMR = 88.362 + 13.397 * weightElem + 4.799 * heightElem - 5.677 * ageElem;
+  if (activity <= 1.2) {
+    minP = weight * 0.8;
+    maxP = weight * 1.2;
+  } else if (activity <= 1.55) {
+    minP = weight * 1.2;
+    maxP = weight * 1.7;
+  } else if (activity <= 1.725) {
+    minP = weight * 1.6;
+    maxP = weight * 2.2;
   } else {
-    BMR = 447.593 + 9.247 * weightElem + 3.098 * heightElem - 4.33 * ageElem;
+    minP = weight * 1.8;
+    maxP = weight * 2.5;
   }
 
-  TDEE = BMR * activityElem;
-
-  switch (activityElem) {
-    case 1.2:
-      minimumProtein = weightElem * 0.8;
-      maximumProtein = weightElem * 1.2;
-      break;
-    case 1.375:
-      minimumProtein = weightElem * 0.8;
-      maximumProtein = weightElem * 1.2;
-      break;
-    case 1.55:
-      minimumProtein = weightElem * 1.2;
-      maximumProtein = weightElem * 1.7;
-      break;
-    case 1.725:
-      minimumProtein = weightElem * 1.6;
-      maximumProtein = weightElem * 2.2;
-      break;
-    case 1.9:
-      minimumProtein = weightElem * 1.8;
-      maximumProtein = weightElem * 2.5;
-      break;
-    default:
-      resultElem.innerHTML = `Please pick an activity level`;
-      return;
-  }
-
-  resultElem.innerHTML = `Calories recommended per day: ${BMR.toFixed(2)}.<br>
-  To maintain your weight (${weightElem}KG), you will need at least ${TDEE.toFixed(
-    2
-  )} calories per day.<br>
-  The recommended protein you should be taking is ${minimumProtein}G - ${maximumProtein}G.<br>`;
+  result.innerHTML = `
+    Calories recommended per day: ${BMR.toFixed(2)}.<br>
+    To maintain your weight (${weight}KG), you need approx ${TDEE.toFixed(2)} calories/day.<br>
+    Protein intake: ${minP.toFixed(1)}G - ${maxP.toFixed(1)}G per day.`;
 }
 
-// make the review randomized
-
+// ==========================
+// AUTO-ROTATING REVIEWS
+// ==========================
 const reviewers = [
   {
     name: "Fiona Hughes",
@@ -267,114 +243,93 @@ const reviewers = [
     occupation: "Steelworker",
     img: "images/steelworker.png",
     stars: [5],
-    text: "Absolutely love this gym! The trainers are so motivating, and the variety of classes keeps things interesting. Plus, the equipment is top-notch.",
+    text: "Absolutely love this gym! The trainers are so motivating, and the variety of classes keeps things interesting.",
   },
   {
     name: "Miguel Cruz",
     occupation: "Blogger",
     img: "images/blogger.png",
     stars: [5],
-    text: "This gym is a hidden gem! It's smaller than some of the chain gyms, but the personal attention from the trainers makes all the difference. Plus, the classes are challenging and fun.",
+    text: "This gym is a hidden gem! Smaller but highly focused and personal. Classes are challenging and fun.",
   },
   {
     name: "Dr. Benjamin Stanley",
     occupation: "Doctor",
     img: "images/doctor.png",
     stars: [5],
-    text: "The best gym in town! The facilities are always clean, and the trainers are incredibly knowledgeable. I've achieved amazing results thanks to their guidance.",
+    text: "The best gym in town! The facilities are always clean, and the trainers are incredibly knowledgeable.",
   },
   {
     name: "Chioma Adekunle",
     occupation: "Nurse",
     img: "images/nurse.png",
     stars: [5],
-    text: "Love the community vibe at this gym. Everyone is so supportive, and there's a real sense of camaraderie among members. Plus, the classes are fantastic!",
+    text: "Love the community vibe. Everyone is supportive and there's real camaraderie.",
   },
   {
     name: "Shanice Thompson",
     occupation: "Call Agent",
     img: "images/callAgent.png",
     stars: [2],
-    text: "Not impressed with this gym. The equipment is often out of order, and it's always overcrowded during peak hours. Definitely not worth the membership fee.",
+    text: "Not impressed. Equipment often broken and always overcrowded.",
   },
   {
     name: "Derek Kelly",
     occupation: "Electrician",
     img: "images/electrician.png",
     stars: [5],
-    text: "Fun & energetic! Zumba, Hip-Hop, dance fitness classes. Burn calories and have a blast!",
+    text: "Fun & energetic! Zumba, Hip-Hop, dance fitness. Burn calories and have a blast!",
   },
   {
     name: "Josh Blessington",
     occupation: "Engineer",
     img: "images/engineer2.png",
     stars: [4.5],
-    text: "Find your inner peace! Diverse yoga classes, experienced instructors, calming atmosphere. Perfect for relaxation and flexibility.",
+    text: "Inner peace! Diverse yoga classes, calming atmosphere. Perfect for relaxation.",
   },
 ];
 
 function autoReview() {
   let reviewContent = document.querySelector(".review__content");
-  reviewContent.classList.remove("show"); //removes .review__content.show
+  reviewContent.classList.remove("show");
 
   setTimeout(function () {
     let currentReviewIndex = Math.floor(Math.random() * reviewers.length);
-    let name = reviewers[currentReviewIndex].name;
-    let occupation = reviewers[currentReviewIndex].occupation;
-    let img = reviewers[currentReviewIndex].img;
-    let text = reviewers[currentReviewIndex].text;
-    let star = reviewers[currentReviewIndex].stars[0];
+    let { name, occupation, img, text, stars } = reviewers[currentReviewIndex];
 
     document.getElementById("reviewName").innerHTML = name;
     document.getElementById("reviewOccupation").innerHTML = occupation;
-    document.getElementById("reviewImgPerson").src = img; //target the .src instead of innerHTML
+    document.getElementById("reviewImgPerson").src = img;
     document.getElementById("reviewerText").innerHTML = text;
 
     let starContainer = document.querySelector(".review__star");
     starContainer.innerHTML = "";
 
-    let fullStars = Math.floor(star);
-    let halfStar;
-    if (star % 1 !== 0) {
-      halfStar = true;
-    } else {
-      halfStar = false;
-    }
-    let emptyStars = 5 - fullStars - halfStar;
+    let full = Math.floor(stars[0]);
+    let half = stars[0] % 1 !== 0;
+    let empty = 5 - full - (half ? 1 : 0);
 
-    for (let i = 0; i < fullStars; i++) {
-      let starElem = document.createElement("i");
-      starElem.className = "ri-star-fill";
-      starContainer.appendChild(starElem);
+    for (let i = 0; i < full; i++) {
+      let star = document.createElement("i");
+      star.className = "ri-star-fill";
+      starContainer.appendChild(star);
     }
 
-    if (halfStar == true) {
-      let starElem = document.createElement("i");
-      starElem.className = "ri-star-half-line";
-      starContainer.appendChild(starElem);
+    if (half) {
+      let star = document.createElement("i");
+      star.className = "ri-star-half-line";
+      starContainer.appendChild(star);
     }
 
-    for (let i = 0; i < emptyStars; i++) {
-      let starElem = document.createElement("i");
-      starElem.className = "ri-star-line";
-      starContainer.appendChild(starElem);
+    for (let i = 0; i < empty; i++) {
+      let star = document.createElement("i");
+      star.className = "ri-star-line";
+      starContainer.appendChild(star);
     }
 
     reviewContent.classList.add("show");
   }, 1000);
 }
+
 window.onload = autoReview;
-setInterval(autoReview, 6000); // 5000 means 5 seconds
-function toggleMenu() {
-  document.querySelector(".nav-ul").classList.toggle("show");
-}
-const menuToggle = document.querySelector(".menu-toggle");
-const navMenu = document.querySelector(".nav-ul");
-
-menuToggle.addEventListener("click", () => {
-  navMenu.classList.toggle("show");
-  document.body.classList.toggle("menu-open");
-});
-
-
-
+setInterval(autoReview, 6000); // every 6 seconds
